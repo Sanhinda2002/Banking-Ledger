@@ -47,7 +47,7 @@ public class LedgerService {
     public Transaction addTransaction (Long ledgerId, Transaction transaction){
         Ledger ledger= getLedger(ledgerId);
         transaction.setLedger(ledger);
-        transaction.setTimeStamp(LocalDateTime.now());
+        transaction.setTimestamp(LocalDateTime.now());
         return transactionRepository.save(transaction);
     }
 
