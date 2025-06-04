@@ -51,4 +51,9 @@ public class LedgerService {
         return transactionRepository.save(transaction);
     }
 
+    // Get all transactions for ledger
+    public List<Transaction> getTransactions(Long ledgerId){
+        return transactionRepository.findByLedgerId(ledgerId);
+    }
+
 }
