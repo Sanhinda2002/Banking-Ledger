@@ -16,5 +16,5 @@ public class Transaction {
     private String type;
     private String description;
     private LocalDateTime timestamp;
-    
+
 }
