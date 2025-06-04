@@ -17,6 +17,8 @@ public class Transaction {
     private String description;
     private LocalDateTime timestamp;
 
+    @ManyToOne
+    @JoinColumn(name = "ledger_id", nullable = false)
     private Ledger ledger;
 
     public long getId() {
