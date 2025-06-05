@@ -71,4 +71,16 @@ public class Transaction {
     public void setLedger(Ledger ledger) {
         this.ledger = ledger;
     }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", amount=" + amount +
+                ", type='" + type + '\'' +
+                ", description='" + description + '\'' +
+                ", timestamp=" + timestamp +
+                '}';
+    }
+    
 }
