@@ -2,17 +2,19 @@ package com.banking.ledger.Models;
 
 import jakarta.persistence.*;
 
+// Entity class representing a Ledger
 @Entity
 @Table (name = "ledgers")
 public class Ledger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private long id;
-    private long userId;
-    private String currency;
-    private String bank;
+    private long id;   // Primary key of the ledger
+    private long userId;   // ID of the user who owns the ledger.
+    private String currency;   // Currency type of the ledger
+    private String bank;   // Bank name associated with the ledger
 
+    // Getters
     public long getId() {
         return id;
     }
@@ -29,6 +31,7 @@ public class Ledger {
         return bank;
     }
 
+    // Setters
     public void setId(long id) {
         this.id = id;
     }
