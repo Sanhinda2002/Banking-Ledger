@@ -1,6 +1,8 @@
 package com.banking.ledger.Models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 // Entity class representing a Ledger
 @Entity
@@ -10,8 +12,14 @@ public class Ledger {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;   // Primary key of the ledger
-    private long userId;   // ID of the user who owns the ledger.
+
+    @NotNull(message = "User ID cannot be null")
+    private Long userId;   // ID of the user who owns the ledger.
+
+    @NotBlank(message = "Currency is required")
     private String currency;   // Currency type of the ledger
+
+    @NotBlank(message = "Bank is required")
     private String bank;   // Bank name associated with the ledger
 
     // Getters

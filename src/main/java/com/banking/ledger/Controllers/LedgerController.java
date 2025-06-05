@@ -3,6 +3,7 @@ package com.banking.ledger.Controllers;
 import com.banking.ledger.Models.Ledger;
 import com.banking.ledger.Models.Transaction;
 import com.banking.ledger.Services.LedgerService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class LedgerController {
 
     // Creates a new ledger
     @PostMapping("/ledgers")
-    public Ledger createLedger (@RequestBody Ledger ledger){
+    public Ledger createLedger (@Valid @RequestBody Ledger ledger){
         return ledgerService.createLedger(ledger);
     }
 
@@ -37,7 +38,7 @@ public class LedgerController {
 
     // Adds a transaction to a specific ledger
     @PostMapping("/ledgers/{ledgerId}/transactions")
-    public Transaction addTransactions(@PathVariable Long ledgerId, @RequestBody Transaction transaction){
+    public Transaction addTransactions(@PathVariable Long ledgerId, @Valid @RequestBody Transaction transaction){
         return ledgerService.addTransaction(ledgerId, transaction);
     }
 

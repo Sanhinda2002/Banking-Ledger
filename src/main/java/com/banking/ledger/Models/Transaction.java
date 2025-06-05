@@ -1,6 +1,8 @@
 package com.banking.ledger.Models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
@@ -12,7 +14,11 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;   // Primary key of the transaction
-    private double amount;  // Amount of the transaction
+
+    @NotNull(message = "Amount is required")
+    private Double amount;  // Amount of the transaction
+
+    @NotBlank(message = "Type is required")
     private String type; // Type of the transaction - credit, debit
     private String description;   // Description of the transaction
     private LocalDateTime timestamp;   // Timestamp when the transaction occurred
@@ -82,5 +88,5 @@ public class Transaction {
                 ", timestamp=" + timestamp +
                 '}';
     }
-    
+
 }
